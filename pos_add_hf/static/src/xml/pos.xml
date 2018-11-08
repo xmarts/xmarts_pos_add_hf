@@ -29,7 +29,7 @@
             <div><hr/>
                 <p style="text-align: center; width: 100%; font-size: 11px;">
                     GRACIAS POR SU COMPRA<br/>
-Usted tiene 15 días para cambios físicos presentando su ticket de compra, solo por talla y color del mismo modelo habiendo existencias, las prendas deberán contener su etiqueta original.
+                    <t t-esc="widget.pos.config.text_footer"/>
                 </p>
             </div>
         </t>

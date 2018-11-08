@@ -54,6 +54,14 @@
                         </div>
                         <div class="col-12 col-lg-6 o_setting_box">
                             <div class="o_setting_right_pane">
+                                <span class="o_form_label">Texto del pie del ticket</span>
+                                <div class="content-group">
+                                    <field name="text_footer"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
                                 <span class="o_form_label">Logo</span>
                                 <div class="text-muted">
                                     Logo de la tienda.

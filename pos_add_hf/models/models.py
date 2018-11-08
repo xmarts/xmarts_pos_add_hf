@@ -9,3 +9,4 @@ class pos_config_adds(models.Model):
 	encargado_ptv = fields.Char(string="Encargado de PTV")
 	logo_ptv = fields.Binary(string="Logo de encabezado")
 	telefono_ptv = fields.Char(string="Teléfono de PTV")
+	text_footer = fields.Text(string="Texto del pie de pagina")
