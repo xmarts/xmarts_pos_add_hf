@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-extend="PosTicket">
+        <t t-jquery='div[class="pos-center-align"]' t-operation='before'>
+            
+            <div style="text-align: center; width: 95%; font-size: 12px;">
+                <t t-if="widget.pos.config.logo_ptv">
+                    <img t-attf-src="data:image/*;base64,{{widget.pos.config.logo_ptv}}" style="width: 100%;"/>
+                </t>
+                <t t-if="widget.pos.config.encargado_ptv">
+                    <t t-esc="widget.pos.config.encargado_ptv"/><br/>
+                </t>
+                <t t-if="widget.pos.config.rfc_ptv">
+                    <t t-esc="widget.pos.config.rfc_ptv"/><br/>
+                </t>
+                <t t-if="widget.pos.config.direccion_ptv">
+                    <t t-esc="widget.pos.config.direccion_ptv"/><br/>
+                </t>
+                <span>Personas Fisicas con Actividades Empresariales y Profesionales</span><br/>
+                <t t-if="widget.pos.config.telefono_ptv">
+                    <span>TELÉFONO: </span><t t-esc="widget.pos.config.telefono_ptv"/><br/>
+                </t>
+                <span>Vendedor: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/></span><br />
+                <span>Cliente: <t t-esc="order.get_client().name"/></span><hr/>
+            </div>
+
+        </t>
+        <t t-jquery='div[class="pos-sale-ticket"]' t-operation='append'>
+            <div><hr/>
+                <p style="text-align: center; width: 100%; font-size: 11px;">
+                    GRACIAS POR SU COMPRA<br/>
+Usted tiene 15 días para cambios físicos presentando su ticket de compra, solo por talla y color del mismo modelo habiendo existencias, las prendas deberán contener su etiqueta original.
+                </p>
+            </div>
+        </t>
+    </t> 
+</template>

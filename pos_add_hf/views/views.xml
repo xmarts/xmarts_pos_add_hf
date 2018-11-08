@@ -1,0 +1,71 @@
+<openerp>
+  <odoo>
+    <record id="viem_add_addres_ptv" model="ir.ui.view">
+            <field name="name">view.add.address.ptv</field>
+            <field name="model">pos.config</field>
+            <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <h2>Encabezado del Ticket POS</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">RFC</span>
+                                <div class="text-muted">
+                                    RFC de la tienda.
+                                </div>
+                                <div class="content-group">
+                                    <field name="rfc_ptv"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Encargado</span>
+                                <div class="text-muted">
+                                    Encargado/Gerente de la tienda.
+                                </div>
+                                <div class="content-group">
+                                    <field name="encargado_ptv"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Dirección</span>
+                                <div class="text-muted">
+                                    Dirección de la tienda.
+                                </div>
+                                <div class="content-group">
+                                    <field name="direccion_ptv"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Teléfono</span>
+                                <div class="text-muted">
+                                    Teléfono de la tienda.
+                                </div>
+                                <div class="content-group">
+                                    <field name="telefono_ptv"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Logo</span>
+                                <div class="text-muted">
+                                    Logo de la tienda.
+                                </div>
+                                <div class="content-group">
+                                    <field name="logo_ptv" widget="image" width="100" height="100"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+  </odoo>
+</openerp>
