@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "POS Encabezado/Pie de pagina",
+    'name': "POS Encabezado/Pie de pagina V2",
 
     'summary': "Para odoo12",
 
@@ -14,10 +14,11 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['point_of_sale'],
+    'depends': ['base','point_of_sale'],
 
     # always loaded
     'data': [
+        'static/src/xml/assets.xml',
         'views/views.xml',
     ],
     'installable': True,

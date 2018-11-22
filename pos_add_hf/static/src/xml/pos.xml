@@ -20,14 +20,19 @@
                     <t t-if="widget.pos.config.telefono_ptv">
                         <span>TELÉFONO: </span><t t-esc="widget.pos.config.telefono_ptv"/><br/>
                     </t>
-                    <span>Vendedor: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/></span><br />
-                    <span>Cliente: <t t-esc="order.get_client().name"/></span><hr/>
+                    <span>Vendedor: <t t-esc="widget.pos.cashier ? widget.pos.cashier.name : widget.pos.user.name"/></span>
+                    <t t-if="order.get_client()">
+                        <br />
+                        <span>Cliente: <t t-esc="order.get_client().name"/> </span>
+                    </t>
+                    <hr/>
                 </div>
 
             
 
                 <div class="pos-center-align"><t t-esc="order.formatted_validation_date"/> <t t-esc="order.name"/></div>
                 <br />
+                <!--
                 <t t-esc="widget.pos.company.name"/><br />
                 <div class="receipt-phone">
                     Phone: <t t-esc="widget.pos.company.phone || ''"/><br />
@@ -36,12 +41,14 @@
                     User: <t t-esc="widget.pos.get_cashier().name"/><br />
                 </div>
                 <br />
+                -->
                 <table class='receipt-orderlines'>
                     <colgroup>
                         <col width='50%' />
                         <col width='25%' />
                         <col width='25%' />
                     </colgroup>
+                    <t t-set="titems" t-value="0" />
                     <tr t-foreach="orderlines" t-as="orderline">
                         <td>
                             <t t-esc="orderline.get_product().display_name"/>
@@ -57,6 +64,17 @@
                         <td class="pos-right-align">
                             <t t-esc="widget.format_currency(orderline.get_display_price())"/>
                         </td>
+                        <t t-set="titems" t-value="titems + orderline.get_quantity()" />
+                    </tr>
+                    <tr>
+                        <td><br /></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Total Items:</td>
+                        <td class="pos-right-align"><t t-esc="titems"/></td>
+                        <td></td>
                     </tr>
                 </table>
                 <br />
@@ -89,6 +107,7 @@
                             <t t-esc="widget.format_currency(order.get_total_with_tax())"/>
                         </td>
                     </tr>
+
                 </table>
                 <br />
                 <table class='receipt-paymentlines'>
@@ -108,10 +127,11 @@
                     <tr><td>Change:</td><td class="pos-right-align">
                         <t t-esc="widget.format_currency(order.get_change())"/>
                         </td></tr>
-                </table>
-            
+                </table><hr/>
+                
+                <div align="center" style="margin-top: 3px;"><img id="barcode" style="height: 100px;"/></div>
 
-                <div><hr/>
+                <div>
                     <p style="text-align: center; width: 100%; font-size: 11px;">
                         GRACIAS POR SU COMPRA<br/>
                         <t t-esc="widget.pos.config.text_footer"/>
