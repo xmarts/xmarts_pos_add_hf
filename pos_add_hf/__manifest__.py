@@ -14,12 +14,14 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','point_of_sale'],
+    'depends': ['base','point_of_sale','sale'],
 
     # always loaded
     'data': [
         'static/src/xml/assets.xml',
         'views/views.xml',
+        'reports/report_recibo_ticket.xml',
+        'reports/reports_menu.xml'
     ],
     'installable': True,
     'application': True,
